@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+
+.response-form {
+  display: flex;
+  flex-direction: column;
+}

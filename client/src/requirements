@@ -1,0 +1,12 @@
+The next React Project Ideas for Beginners on which you can work is the React form. 
+Several forms are being generated to gather the individual’s data. 
+You should have a clear idea of event handlers, react hooks, states, etc. 
+All the buttons should work properly. To get more information about react hooks click here. 
+The entire form should save the data in the backend. When you’re ready, give the dummy data to see the action.
+It should include features like – 
+
+Taking user’s data.
+A SUBMIT button.
+On submit must highlight the empty block.
+Error message when entering the wrong format of email ID.
+Display a success message on successful submission.
