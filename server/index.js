@@ -25,32 +25,28 @@ db.connect(function(err) {
       console.log("1 record inserted");
     }); */
   });
+   
 
-
-     
-
-app.get("/test", (req, res) => {
+app.get("http://localhost:3001/test", (req, res) => {
+    
     res.json({ message: "Hello from server!" });
-  }); 
+  });
 
 
 app.post('/create', (req, res) => {
     console.log(req.body);
-    
+  
     const name = req.body.name;
     const email = req.body.email;
     const comment = req.body.comment;
 
-    db.query('INSERT INTO contacts (name, email, comment) VALUES(?,?,?)' 
-    [name, email, comment], (err, res) => {
-        if(err){
-            console.log(err);
-        } else {
-            res.send('values inserted');
-        }
-    }
-    );
-}); 
+     var sql = "INSERT INTO contacts (name, email, comment) VALUES ('"+name+"', '"+email+"', '"+comment+"')";
+     //sql = sql.replace('?1', name)
+      db.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("1 record inserted");
+      });
+});
 
 
 app.listen(3001, () => {

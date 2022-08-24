@@ -13,19 +13,18 @@ function App() {
 
   const nameHandler = (e) => {
       setName(e.target.value);
-      console.log(name);
+     
       
   }
 
   const emailHandler = (e) => {
     setEmail(e.target.value);
-    console.log(email);
-    
+
   }
 
   const commentHandler = (e) => {
     setComment(e.target.value);
-    console.log(comment);
+   
     
   }
 
@@ -47,8 +46,8 @@ function App() {
       email: email,
       comment: comment
     })
-    .then(() => {
-      console.log('success');
+    .then((response) => {
+      console.log(response);
     })
     .catch((error) => {
       console.log('err ' + error);
@@ -60,27 +59,32 @@ function App() {
     setComment('');
   }
 
-/* 
-will create a button and put this inside eventhandler
-  Axios.get('/test')
-  .catch(function (error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-    } else if (error.request) {
-      // The request was made but no response was received
-      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-      // http.ClientRequest in node.js
-      console.log(error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log('Error', error.message);
-    }
-    console.log(error.config);
-  }); */
+
+
+  const getData = (e) => {
+    e.preventDefault();
+
+    Axios.get('http://localhost:3001/')
+    .catch(function (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+       
+        console.log(error.response.status);
+        
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    }); 
+
+  } 
 
 
   return (
@@ -105,11 +109,16 @@ will create a button and put this inside eventhandler
            </div> 
           <div>
               <button type="submit"> Submit</button>
-          </div>
-          
+          </div>          
         </form>
       </div>
+    <br />
+      <div className="get-data" onClick = { getData }>
+       <button type="submit"> Get Data</button>
     </div>
+    </div>
+
+   
   );
 }
 
