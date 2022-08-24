@@ -15,6 +15,25 @@ const db = mysql.createConnection({
 });
 
 
+
+db.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    /* var sql = "INSERT INTO contacts (name, email, comment) VALUES ('Test', 'triptichhetri123@gmail.com', 'This is a test')";
+    db.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("1 record inserted");
+    }); */
+  });
+
+
+     
+
+app.get("/test", (req, res) => {
+    res.json({ message: "Hello from server!" });
+  }); 
+
+
 app.post('/create', (req, res) => {
     console.log(req.body);
     
@@ -31,7 +50,7 @@ app.post('/create', (req, res) => {
         }
     }
     );
-});
+}); 
 
 
 app.listen(3001, () => {
