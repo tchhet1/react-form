@@ -27,9 +27,17 @@ db.connect(function(err) {
   });
    
 
-app.get("http://localhost:3001/test", (req, res) => {
+app.get("/contacts", (req, res) => {
     
-    res.json({ message: "Hello from server!" });
+    db.query("SELECT * FROM contacts",  (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            //res.send(result);
+        }
+       
+      });
+
   });
 
 
